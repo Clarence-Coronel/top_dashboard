@@ -246,7 +246,7 @@ main{
 
 .projects-container{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: max(2vw, 20px);
 }
 
@@ -329,6 +329,10 @@ main{
 }
 
 @media screen and (max-width: 900px){
+
+    .projects-container{
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
 
     header{
         padding: max(1vh, 10px) max(2vw, 20px);
