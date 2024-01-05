@@ -321,6 +321,7 @@ main{
         grid-template-rows: auto auto auto;
         justify-content: center;
         align-items: center;
+        padding: max(2vh, 25px) max(2vw, 20px);
     }
 
     .projects, .trending, .announcements{
