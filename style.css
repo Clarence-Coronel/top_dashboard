@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: rgb(46, 46, 46)
+}
+
+body{
+
+    width: 100vw;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 4fr;
+}
+
+header{
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(94, 94, 94, 0.301);
+    z-index: 2;
+    display: grid;
+    grid-template-rows: auto auto;
+    padding: max(1vh, 10px) max(3vw, 20px);
+    gap: max(1vh, 10px);
+}
+
+header > div:nth-child(1){
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    align-items: center;
+    gap: max(2vw, 20px);
+}
+
+header > div:nth-child(1) img{
+    width: 35px;
+}
+
+header > div:nth-child(1) span{
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+header .search-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: max(1vw, 10px);
+}
+
+header .search-container img{
+    width: 35px;
+}
+
+header .search-container input{
+    height: 35px;
+    width: 50%;
+    border-radius: 250px;
+    background-color: rgb(221, 232, 239);
+    border: none;
+    padding: 0 max(1vw, 15px);
+}
+
+header .search-container input:focus{
+    outline: none;
+}
+
+header .profile{
+    background-image: url("./assets/profile.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+header > div:nth-child(2){
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: max(2vw, 20px);
+}
+
+header > div:nth-child(2) .intro-container{
+    display: grid;
+    justify-content: flex-start;
+    grid-template-columns: auto 1fr;
+    column-gap: max(1vw, 10px);
+}
+
+header .intro-container .profile{
+    background-image: url("./assets/profile.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    grid-row: 1 / 3;
+}
+
+header .intro-container .intro{
+    font-weight: 700;
+    align-self: flex-end;
+}
+
+header .intro-container .name{
+    font-weight: 700;
+    font-size: 1.5rem;
+    align-self: flex-start;
+}
+
+header > div:nth-child(2) button{
+    background-color: rgb(60, 152, 237);
+    border: none;
+    width: 100px;
+    height: fit-content;
+    border-radius: 250px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: max(0.5vw, 10px) max(1vw, 10px);
+}
+
+header > div:nth-child(2) button:hover{
+    cursor: pointer;
+    background-color: rgb(65, 159, 248);
+}
+
+main{
+    background-color: rgb(221, 232, 239);
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    z-index: 1;
+}
+
+.sidebar{
+    background-color: rgb(60, 152, 237);
+    grid-area: 1 / 1 / 3 / 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: flex-start;
+    padding: max(1.5vw, 20px);
+    gap: max(5vh, 50px);
+    z-index: 3;
+}
+
+.sidebar h1{
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: max(1vw, 10px);
+    
+}
+
+.sidebar h1 img{
+    width: 50px;
+}
+
+.sidebar li{
+    list-style-type: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 800;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: max(1vw, 10px);
+    transition-duration: 200ms;
+}
+
+.sidebar li:hover{
+    cursor: pointer;
+    color: whitesmoke;
+    transform: translate(1vw, 0);
+    font-size: 1.5rem;
+}
+
+.sidebar li a{
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+}
+
+.sidebar li img{
+    width: 30px;
+}
+
+.sidebar ul{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: max(2vh, 20px);
+}
+
