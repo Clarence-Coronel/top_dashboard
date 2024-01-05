@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    color: rgb(46, 46, 46)
+    color: rgb(58, 58, 58)
 }
 
 body{
@@ -15,7 +15,8 @@ body{
 
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: auto 4fr;
+    overflow-x: hidden;
 }
 
 header{
@@ -62,8 +63,8 @@ header .search-container input{
     height: 35px;
     width: 50%;
     border-radius: 250px;
-    background-color: rgb(221, 232, 239);
-    border: none;
+    background-color: rgba(250, 200, 142, 0.744);
+    border: 1px solid rgba(255, 136, 0, 0.972);
     padding: 0 max(1vw, 15px);
 }
 
@@ -78,6 +79,10 @@ header .profile{
     width: 60px;
     height: 60px;
     border-radius: 50%;
+}
+
+header .name{
+    color: rgb(255, 115, 0);
 }
 
 header > div:nth-child(2){
@@ -108,16 +113,18 @@ header .intro-container .profile{
 header .intro-container .intro{
     font-weight: 700;
     align-self: flex-end;
+    font-style: italic;
 }
 
 header .intro-container .name{
-    font-weight: 700;
+    font-weight: 800;
     font-size: 1.5rem;
     align-self: flex-start;
+    color: rgb(255, 115, 0);
 }
 
 header > div:nth-child(2) button{
-    background-color: rgb(60, 152, 237);
+    background-color: rgb(242, 191, 6);
     border: none;
     width: 100px;
     height: fit-content;
@@ -126,22 +133,27 @@ header > div:nth-child(2) button{
     font-size: 1rem;
     font-weight: 600;
     padding: max(0.5vw, 10px) max(1vw, 10px);
+    text-align: center;
+}
+
+header > div:nth-child(2) > img{
+    display: none;
 }
 
 header > div:nth-child(2) button:hover{
     cursor: pointer;
-    background-color: rgb(65, 159, 248);
+    background-color: rgb(250, 197, 7);
 }
 
 main{
-    background-color: rgb(221, 232, 239);
+    background-color: rgba(250, 200, 142, 0.744);
     grid-row: 2 / 3;
     grid-column: 2 / 3;
     z-index: 1;
 }
 
 .sidebar{
-    background-color: rgb(60, 152, 237);
+    background-color: rgb(92, 63, 37);
     grid-area: 1 / 1 / 3 / 2;
     display: grid;
     grid-template-columns: 1fr;
@@ -157,8 +169,13 @@ main{
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
+    font-size: 1.5rem;
     gap: max(1vw, 10px);
-    
+}
+
+.sidebar h1 a{
+    color: inherit;
+    text-decoration: none;
 }
 
 .sidebar h1 img{
@@ -201,3 +218,211 @@ main{
     gap: max(2vh, 20px);
 }
 
+main{
+    display: grid;
+    padding: max(5vh, 50px) max(2vw, 20px);
+    gap: max(2vw, 20px);
+    grid-template: 1fr 1fr / 3fr 1fr;
+}
+
+.projects, .trending, .announcements{
+    /* border: 1px solid red; */
+}
+
+.projects{
+    grid-area: 1 / 1 / 3 / 2;
+    display: flex;
+    flex-flow: column;
+    gap: max(1vh, 10px);
+}
+
+.announcements{
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.trending{
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.projects-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: max(2vw, 20px);
+}
+
+.card{
+    border-left: 10px solid rgb(255, 115, 0);
+    border-radius: 10px;
+    background-color: white;
+    height: 250px;
+    padding: max(2vh, 25px) max(0.8vw, 7px);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    justify-items: flex-start;
+    gap: max(0.7vh, 8px);
+}
+
+.action-container{
+    justify-self: flex-end;
+    align-self: flex-end;
+    
+    display: flex;
+    flex-flow: row nowrap;
+    gap: max(1.5vw, 15px);
+}
+
+.action-container button{
+    width: 25px;
+    background-color: transparent;
+    border: none;
+}
+
+.card .card__header{
+    font-weight: 700;
+    font-size: 1.1rem;
+    align-self: flex-end;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+    body{
+        grid-template-columns: auto 1fr;
+    }
+
+    .sidebar{
+        width: fit-content;
+    }
+
+    .sidebar h1 img{
+        width: 25px;
+    }
+    
+    .sidebar h1 a{
+        display: none;
+    }
+
+    .sidebar li{
+        justify-content: center;
+    }
+
+    .sidebar li img{
+        width: 25px;
+    }
+
+    .sidebar li a{
+        display: none;
+    }
+   
+    main{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .projects, .trending, .announcements{
+        grid-area: unset;
+    }
+}
+
+@media screen and (max-width: 900px){
+
+    header{
+        padding: max(1vh, 10px) max(2vw, 20px);
+    }
+
+    header > div:nth-child(1){
+        grid-template-columns: 100%;
+        /* grid-template-rows: auto auto; */
+    }
+
+    header > div:nth-child(1) > img, header > div:nth-child(1) .profile, header > div:nth-child(1) .name{
+        display: none;
+    }
+
+    header > div:nth-child(1) .search-container input{
+        width: 100%;
+    }
+
+    header > div:nth-child(2) > img{
+        width: 30px;
+        display: unset;
+        justify-self: flex-end;
+    }    
+
+    header > div:nth-child(2){
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+    }
+
+    header > div:nth-child(2) .profile{
+        width: 50px;
+        height: 50px;
+    }
+
+    header > div:nth-child(2) .intro{
+        font-size: 0.8rem;
+    }
+
+    header > div:nth-child(2) .name{
+        font-size: 1rem;
+    }
+
+    header > div:nth-child(2) button{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px){
+
+    :root{
+        font-size: 15px;
+    }
+
+    body{
+        grid-template-rows: auto 8fr;
+    }
+
+    header{
+        grid-template-rows: auto;
+        padding: 0.5vh max(0.5vw, 10px);
+    }
+
+    header .intro-container > .intro{
+        display: none;
+    }  
+
+    header .intro-container{
+        grid-template-rows: 1fr;
+        justify-content: center;
+    }  
+
+    header div:nth-child(2) > .intro-container .name{
+        align-items: center;
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+        align-self: center;
+        font-size: 0.9rem;
+    } 
+
+    header > div:nth-child(1){
+        display: none;
+    }
+
+    header > div:nth-child(2) .intro-container .profile{
+        width: 35px;
+        height: 35px;
+    }
+
+    
+    /* header > div:nth-child(1) .search-container img{
+        height: 25px;
+    }
+
+    header > div:nth-child(1) .search-container input{
+        height: 30px;
+    } */
+}
